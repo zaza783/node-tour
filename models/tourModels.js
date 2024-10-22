@@ -6,11 +6,11 @@ const tourSchema = new mongoose.Schema({
     fullName: {
         type: String,
         required: [true, 'A tour user must have a name'],
-        
+
     },
     destination: {
         type: String,
-        required:[true, 'A tour must have a destination'],
+        required: [true, 'A tour must have a destination'],
     },
     arrival: {
         type: String,
@@ -28,7 +28,7 @@ const tourSchema = new mongoose.Schema({
         },
         phone: {
             type: String,
-            required: [true,'A tour must have a number']
+            required: [true, 'A tour must have a number']
         },
         ratings: {
             type: Number,
@@ -47,7 +47,7 @@ const tourSchema = new mongoose.Schema({
         },
         description: {
             type: String,
-            trim: true 
+            trim: true
         },
         startDate: [Date],
         endDate: [Date]

@@ -46,9 +46,8 @@ const authSchema = new mongoose.Schema({
 });
 
 // Virutal field for password confirmation
-authSchema.virtual('passwordConfirm').get(function() {
-  return this._passwordConfirm;
-}).set(function(value) {
+authSchema.virtual('passwordConfirm')
+.set(function(value) {
   this._passwordConfirm = value;
 });
 
@@ -56,8 +55,8 @@ authSchema.virtual('passwordConfirm').get(function() {
 authSchema.pre('save', function(next) {
   if (!this.isModified('password') || this.isNew) return next();
 
-  if (this.password !== this.passwordConfirm) {
-    return next(new Error('Password are not the same!!'));
+  if (this.password !== this._passwordConfirm) {
+    return next(new Error('Password do not match!'));
   }
 
   next();

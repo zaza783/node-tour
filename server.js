@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
 const tourRoutes = require('./routes/tourRoutes');
 const app = express();
 const dotenv = require('dotenv');
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 // endpoints 
 app.use('/api/v1/users', authRoutes);
 app.use('/api/v1/tours', tourRoutes);
+app.use('/api/v1/booking', bookingRoutes);
 
 
 // Router handler
